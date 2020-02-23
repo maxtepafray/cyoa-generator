@@ -115,8 +115,6 @@
 			setTimeout(function(){
 				if (document.getElementById("select-list-wrapper").style.height > `10px`){
 					slideDown(document.getElementById("select-list-wrapper"));
-				}else{
-					console.log("NOT FIRING");
 				}
 			},50);
 			$scope.selectarr=[].concat.apply([],$scope.selected.map(function(obj){return obj.items})).map(function(obj){return obj.item})
