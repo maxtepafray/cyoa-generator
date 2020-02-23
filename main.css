@@ -1,0 +1,238 @@
+
+.size-1{
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 100%;
+    max-width: 100%;
+}
+
+.size-2{
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50%;
+    max-width: 50%;
+}
+
+.size-3{
+    -ms-flex: 0 0 33.3%;
+    flex: 0 0 33.3%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 33.3%;
+    max-width: 33.3%;
+}
+
+.size-4{
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 25%;
+    max-width: 25%;
+}
+
+.center-items {
+	flex-direction: row;
+	justify-content: center;
+
+}
+
+.bubble {
+    border: 7px solid #1C6EA4;
+	border-radius: 20px;
+    padding: 10px;
+    background: rgb(0,232,255);
+	position: relative;
+	padding-bottom: 20px;
+	width:100%;
+	flex-grow:1;
+	margin: 5px;
+}
+
+.bubble[checked]{
+    background: white;
+	border: 7px solid yellow;
+	color: black;
+}
+
+.bubble[disabled]{
+    background: rgb(200,200,200);
+	border: 7px solid black;
+	color: black;
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+.bubble[disabled][checked]{
+    background: rgb(200,200,200);
+	border: 7px solid red;
+	color: red;
+	cursor: pointer;
+	opacity: 1;
+}
+
+.main-text {
+	color: #FFFFFF;
+	text-shadow: 3px 5px 2px #474747, 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;;
+	position: relative;
+}
+
+.point-counter {
+	position: absolute;
+	bottom: 5px;
+	text-align: center;
+	width: 100%;
+	font-size: 20px
+	
+}
+
+h3 {
+	text-align: center;
+}
+
+body {
+	background: #D0E4F5 url("images/background.jpg") repeat 0 0;
+	padding: 10px 0;
+}
+
+/* Remove this if you don't want a gradient */
+body:before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: -moz-linear-gradient(left, #000000 0%, #1C6EA4 50%, #000000 100%);
+  background: -webkit-linear-gradient(left, #000000 0%, #1C6EA4 50%, #000000 100%);
+  background: linear-gradient(to right, #000000 0%, #1C6EA4 50%, #000000 100%);
+  opacity: .75;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+.image {
+	border: 5px solid #FFFFFF;
+	border-radius: 20px;
+	width: 100%; 
+	height:200px;
+	background-size: cover; 
+	background-position: center ;
+	background-color: black;
+	
+}
+
+.picture-left .image {
+	width: 25%;
+    display: inline-block;
+    float: left;
+}
+
+.picture-left p {
+    width: 75%;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    padding-left: 10px;
+}
+
+.picture-right .image {
+	width: 25%;
+    display: inline-block;
+    float: right;
+}
+
+.picture-right p {
+    width: 75%;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+    padding-left: 10px;
+}
+
+.pointcounter-float .point-counter {
+    color: white;
+    top: 206px;
+    background-color: darkolivegreen;
+    height: 2em;
+    width: 8em;
+    left: 15px;
+    /* text-align: left; */
+    padding: 5px;
+    border-radius: 0px 17px;
+}
+
+.hidden-entry hidden {
+	color: black;
+	background: black;
+}
+
+.hidden-entry[checked] hidden {
+	color: white;
+	background: black;
+}
+
+.seperator {
+	height: 120px;
+	width: 100%
+}
+
+.logo {
+    text-align: center;
+    background-repeat: no-repeat;
+    height: 200px;
+    display: flex;
+    background-attachment: center;
+    background-position: center;
+    z-index: 50000;
+}
+
+
+/* For the sticky header, 
+Do not mess with unless you know what you're doing */
+.header {
+
+  position: relative;
+  z-index: 9999999;
+}
+
+/* Style the header */
+.headersub {
+  background: #555;
+  padding: 10px 16px;
+  color: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+
+.content {
+background: aliceblue;
+width: 400px;
+float: right;
+display: none;
+border-radius: 0px 0px 10px 10px;
+}
+
+.clickable {
+	cursor: pointer;
+}

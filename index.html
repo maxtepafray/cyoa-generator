@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="js/jquery-ui.min.css">
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
+		
+	</head>
+	<body ng-app="myApp" ng-controller="formcontroler">
+			<title ng-bind="fulltitle">Loading...</title>
+			<div class="header sticky main-text" id="myHeader">
+				<div class="headersub" id="myHeader">
+				  <h2 class="">{{jsondata.points_name_top}}: {{jsondata.point_name_prefix}}<span ng-bind="points"></span><button type="button" style="float: right;border-radius: 20px;" class="collapsible">Show Selected</button></h2>
+				  
+				</div>
+					
+					<div class="content">
+					  <ul>
+						  <li ng-repeat="c in selected| orderBy : 'order'">{{c.name}}:
+							<ul>
+								<li ng-repeat="z in c.items">{{z.item}}<span ng-hide="z.points == null||z.points == 0"> - {{z.points}}</span></li>
+							</ul>
+							</li>
+						</ul>
+					</div>
+			</div>
+		<div class="container" style="padding: 60px 0;"  >
+			
+			<div class="cols-xs-12" style="text-align: center">
+				<img ng-hide="jsondata.logo_image == null||jsondata.logo_image == ''" src="images/{{jsondata.logo_image}}" style="position: relative;" alt="{{jsondata.title}}">
+				<h1 style="position: relative;" ng-hide="jsondata.logo_image != null&&jsondata.logo_image != ''">{{jsondata.title}}</h1>
+			</div>
+			<div class="cols-xs-12" style="text-align: center">
+				<div class="main-text"> <span ng-bind="version">V1.1</span> by <span ng-bind="author"></span></div>
+			</div>
+		 <div ng-repeat="x in jsondata.parts" class="row center-items {{ x.group_class }}">
+			<div ng-repeat="y in x.entries" style="display: flex" class="size-{{ x.size }}">
+				<div  
+				ng-click="toggleSelection($event.currentTarget,y.title,y.points, x.group, y.id)" 
+				ng-disabled="((selectarr.indexOf(y.title) ==	-1)	&& (( y.points > 0 && y.points > points && jsondata.allow_negative != true)||
+				(x.limit <= getgroupcount(x.group))))|| checkconflict(y.id,y.conflict,y.require)"
+				ng-checked="selectarr.indexOf(y.title) > -1"
+				class="{{ x.option_class }} {{ y.class }} ng-class:{ 'clickable': y.points != null };">
+				  <h3>{{ y.title }}</h3>
+					<div   class="image" style="background-image: url('images/{{ y.picture }}');" ng-hide="y.picture == null"></div>
+					<p ng-bind-html="y.text"></p>
+					<div class="point-counter" ng-hide="y.points == null||y.points <= 0||y.point_text != null">{{jsondata.point_cost_text}} {{jsondata.point_name_prefix}}{{ y.points }} {{y.points === 1 ? jsondata.point_name_single : jsondata.point_name_plural}}</div>
+					<div class="point-counter" ng-hide="y.points == null||y.points >= 0||y.point_text != null">{{jsondata.point_gain_text}} {{jsondata.point_name_prefix}}{{ 0-y.points }} {{jsondata.point_name_plural}}</div>
+					<div class="point-counter" ng-hide="y.point_text == null"> {{ y.point_text }} </div>
+				</div>
+			</div>
+		  </div>
+		 </div>
+		</div>
+	</body>
+<script src="macros.js"></script>	
+</html>

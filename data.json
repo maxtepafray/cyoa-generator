@@ -1,0 +1,365 @@
+{
+	"author": "Tepafray",
+	"version": "v0.8",
+	"title": "Interactive CYOA Template",
+	"logo_image": "",
+	"points": 10,
+	"allow_negative": false,
+	"points_name_top": "Points",
+	"point_name_single": "Point",
+	"point_name_prefix": "",
+	"point_name_plural": "Points",
+	"point_cost_text": "Costs",
+	"point_gain_text": "Gain",
+	"parts": [{
+			"option_class": "bubble",
+			"size":1,
+			"entries": [{
+				"title": "",
+				"picture":"placeholder.gif",
+				"text": "Hey there, this is a template for making interactive CYOA's. It's still very much a work in progress, but I hope you find some use for it. A more detailed version of the info below will be covered in the README.md file. But keep scrolling if you want a quick overview of what can be currrently done"
+			}]
+		},{
+			"option_class": "bubble",
+			"size":1,
+			"entries": [{
+				"title": "",
+				"text": "Okay, here's kinda the gist of how things work:"
+			}]
+		},
+		{
+			"option_class": "bubble",
+			"group_class":"pad-options",
+			"size":2,
+			"entries": [{
+					"title": "Files",
+					"text": "- Dependencies aside, there are 4 files of note within the repo </br> - <b>data.json</b> is the lifeblood of the system and supplies all the text, point values, and other rules the system will follow </br> - <b>main.css</b> is your style file, you will alter this to change the look of your CYOA. </br> - <b>index.html</b> and <b>macros.js</b> by default should not be tampered with unless you know what you're doing."
+				},
+				{
+					"title": "Notes",
+					"text": "- By default, the system will refuse to let you go below 0 points. Options will disable if you try. This can be turned off </br> - Clicking a selectible option selects it, Click again to deselect </br> - Clicking \"Show Selected\" will bring up a list of selected options </br> - Show selected will order and sort things by group. Individual objects within a group are not sorted </br> - This is very much a work in progress"
+				}
+			]
+		},
+		{
+			"option_class": "bubble",
+			"group_class":"",
+			"size":1,
+			"entries": [{
+				"title": "Choice Limited Options",
+				"text": "These choices have a limit of 1, you may only pick one. This limit applies only to this group of options and has no effect on the rest of the CYOA. To make a set of options limited, set limit=<number> . Ensure a point value of 0 or the intended amount is set to ensure the option is selectable"
+			}]
+		},
+		{
+			"option_class": "bubble pad-options",
+			"group_class":"",
+			"size":3,
+			"limit": 1,
+			"group":"Choice Limited Options",
+			"entries": [{
+					"title": "Pick Me",
+					"points":0,
+					"text": "Only Pick me"
+				},
+				{
+					"title": "One and Only",
+					"points":0,
+					"text": "I can only be picked"
+				},
+				{
+					"title": "Not Them",
+					"points":0,
+					"text": "This one Only"
+				}
+			]
+		},
+		{
+			"option_class": "bubble",
+			"group_class":"",
+			"size":1,
+			"entries": [{
+				"title": "Point Limited Options",
+				"text": "These options are free to be picked, but have a point cost. These points can be renamed to whatever"
+			}]
+		},
+		{
+			"option_class": "bubble",
+			"group_class":"pad-options",
+			"size":3,
+			"group":"Point Limited Options",
+			"entries": [{
+					"title": "5 Pointer",
+					"picture":"placeholder.gif",
+					"text": "This one costs 5 points. This plus the next one will take up all your points",
+					"points": 5
+				},
+				{
+					"title": "Another 5",
+					"picture":"placeholder.gif",
+					"text": "This one costs 5 points. This plus the last one will take up all your points",
+					"points": 5
+				},
+				{
+					"title": "Too Expensive",
+					"picture":"placeholder.gif",
+					"text": "This one is too expensive to purchase.",
+					"points": 30
+				},
+				{
+					"title": "Get Points",
+					"picture":"placeholder.gif",
+					"text": "This one costs -5 Points. This will give you points",
+					"points": -5
+				},
+				{
+					"title": "No Price",
+					"picture":"placeholder.gif",
+					"text": "This one is free. By default, items without a price will not have a price listed",
+					"points": 0
+				},
+				{
+					"title": "Labeled Price",
+					"picture":"placeholder.gif",
+					"text": "This one is also free, but has a replacement text for the price. This is useful if you want to have conditionals",
+					"points": 0,
+					"point_text":"Free"
+				}
+			]
+		},
+		{
+			"option_class": "bubble",
+			"size": 1,
+			"entries": [{
+				"title": "Require/Conflict",
+				"text": "The third way of restricting choices is by either requiring or prohibiting another option to be picked. These require an ID to be set"
+			}]
+		},
+		{
+			"option_class": "bubble",
+			"group_class":"pad-options",
+			"size":3,
+			"group":"Require/Conflict",
+			"entries": [{
+					"title": "Path A",
+					"id": "A1",
+					"conflict": ["B1","B2","B3"],
+					"picture":"placeholder.gif",
+					"text": "I'm the start of a path of choices to my right. You must select me before selecting Path A2",
+					"points": 1
+				},
+				{
+					"title": "Path A2",
+					"id": "A2",
+					"require": ["A1"],
+					"conflict": ["B1","B2","B3"],
+					"picture":"placeholder.gif",
+					"text": "I require Path A to be Selected, I unlock Path A3",
+					"points": 1
+				},
+				{
+					"title": "Path A3",
+					"id": "A3",
+					"require":["A1","A2"],
+					"conflict": ["B1","B2","B3"],
+					"picture":"placeholder.gif",
+					"text": "I am the ultimate choice of Path A, I require A2 and A to be picked first",
+					"points": 1
+				},
+				{
+					"title": "Path B",
+					"id": "B1",
+					"conflict": ["A1","A2","A3"],
+					"picture":"placeholder.gif",
+					"text": "I'm an alternate Path, selecting me locks you out of Path A",
+					"points": 2
+				},
+				{
+					"title": "Path B2",
+					"id": "B2",
+					"require": ["B1"],
+					"conflict": ["A1","A2","A3"],
+					"picture":"placeholder.gif",
+					"text": "I require Path B to be Selected, I unlock Path B3",
+					"points": 2
+				},
+				{
+					"title": "Path B3",
+					"id": "B3",
+					"require": ["B1","B2"],
+					"conflict": ["A1","A2","A3"],
+					"picture":"placeholder.gif",
+					"text": "I am the ultimate choice of Path B, I require B2 and B to be picked first",
+					"points": 3
+				}
+			]
+		},
+		{
+			"option_class": "bubble",
+			"size": 1,
+			"entries": [{
+				"title": "Seperator",
+				"text": "This doesn't serve much point for interactive CYOA's. But if you want to give yourself a clean point to cut for images, it's there."
+			}]
+		},
+		{
+			"option_class": "seperator",
+			"entries": [{
+				"title": "",
+				"text": ""
+			}]
+		},
+		{
+			"option_class": "bubble",
+			"size":1,
+			"entries": [{
+				"title": "Formatting",
+				"text": "Options can be sized at 1-4 columns per row. This is a Size 1 element"
+			}]
+		},
+		{
+			"option_class": "bubble",
+			"group_class":"",
+			"size":2,
+			"group":"Formatting",
+			"entries": [{
+					"title": "Size 2a",
+					"picture":"placeholder.gif",
+					"text": "This is a Size 2 Element",
+					"points": 1
+				},
+				{
+					"title": "Size 2b",
+					"picture":"placeholder.gif",
+					"text": "This is a Size 2 Element",
+					"points": 1
+				}
+			]
+		},
+		{
+			"option_class": "bubble",
+			"group_class":"",
+			"size":3,
+			"group":"Formatting",
+			"entries": [{
+					"title": "Size 3a",
+					"picture":"placeholder.gif",
+					"text": "This is a Size 3 Element",
+					"points": 1
+				},
+				{
+					"title": "Size 3b",
+					"picture":"placeholder.gif",
+					"text": "This is a Size 3 Element",
+					"points": 1
+				},
+				{
+					"title": "Size 3c",
+					"picture":"placeholder.gif",
+					"text": "This is a Size 3 Element",
+					"points": 1
+				}
+			]
+		},
+		{
+			"option_class": "bubble",
+			"group_class":"",
+			"size":4,
+			"group":"Formatting",
+			"entries": [{
+					"title": "Size 4a",
+					"picture":"placeholder.gif",
+					"text": "This is a Size 4 Element",
+					"points": 1
+				},
+				{
+					"title": "Size 4b",
+					"picture":"placeholder.gif",
+					"text": "This is a Size 4 Element",
+					"points": 1
+				},
+				{
+					"title": "Size 4c",
+					"picture":"placeholder.gif",
+					"text": "This is a Size 4 Element",
+					"points": 1
+				},
+				{
+					"title": "Size 4d",
+					"picture":"placeholder.gif",
+					"text": "This is a Size 4 Element",
+					"points": 1
+				}
+			]
+		},
+		{
+			"option_class": "bubble",
+			"group_class":"",
+			"size":3,
+			"group":"Formatting",
+			"entries": [{
+					"title": "Auto Centering",
+					"picture":"placeholder.gif",
+					"text": "FYI, if you don't have enough entries to fill an entire row. They come out centered",
+					"points": 1
+				},
+				{
+					"title": "Auto Centering 2",
+					"picture":"placeholder.gif",
+					"text": "FYI, if you don't have enough entries to fill an entire row. They come out centered",
+					"points": 1
+				}
+			]
+		},
+		{
+			"option_class": "bubble",
+			"size":1,
+			"entries": [{
+				"title": "Advanced CSS",
+				"text": "Some more advanced usage. These will require a good bit of tweaking to the CSS to get exactly what you want. As a note. You can apply a class to individual elements"
+			}]
+		},
+		{
+			"option_class": "bubble",
+			"group":"Advanced CSS",
+			"size":2,
+			"entries": [{
+					"title": "Picture on Left",
+					"picture": "placeholder.gif",
+					"class": "picture-left",
+					"text": "This element has it's picture on the left.",
+					"points": 0
+				},
+				{
+					"title": "Picture on Right",
+					"picture": "placeholder.gif",
+					"class": "picture-right",
+					"text": "This element has it's picture on the right.",
+					"points": 0
+				},
+				{
+					"title": "Floating Point Counter",
+					"picture": "placeholder.gif",
+					"class": "pointcounter-float",
+					"text": "This element has it's point value within the picture",
+					"points": 1
+				},
+				{
+					"title": "Surprise Entry",
+					"picture": "placeholder.gif",
+					"class": "hidden-entry",
+					"text": "This entry is a suprise entil you select it <hidden> This is great for mystery boxes and stuff </hidden>",
+					"points": 0
+				}
+					
+			]
+		},
+		{
+			"option_class": "bubble bubble-1",
+			"size":1,
+			"entries": [{
+				"title": "",
+				"text": "And that about does it. More changes to come shortly"
+			}]
+		}
+	]
+}
