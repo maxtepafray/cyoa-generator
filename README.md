@@ -1,5 +1,6 @@
 # CYOA Generator
-An AngularJS based web framework for making interactive CYOAs
+An AngularJS based web framework for making interactive CYOAs  
+Preview here: https://maxtepafray.github.io/cyoa-generator/
 
 ### Current Features
 * (Hopefully) straightfoward means of creating interactive CYOA's with needing to know JS
@@ -11,9 +12,16 @@ An AngularJS based web framework for making interactive CYOAs
 * Supports custom CSS styling
 
 ### Requirements
-+ A Firefox based web browser (Chrome based has issues running locally)
++ A Web Browser (See Note Below)
 + A text editor
 + Basic knowledge of CSS (for styling)
+
+#### Fixing Fetch Errors on locally running copies
+You may run into CORs issues when attempting to run locally, these are the workarounds.  
+These are not ideal to be running full time. If I find a better solution, will be adding.
+
+- Chrome-based: Add --allow-file-access-from-files
+- Firefox-baed: about:config -> security.fileuri.strict_origin_policy -> false
 
 ### Included Libraries
 * AngularJS v1.6.9
