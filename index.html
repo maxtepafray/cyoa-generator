@@ -2,10 +2,6 @@
 	<head>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="main.css">
-		<link rel="stylesheet" href="js/jquery-ui.min.css">
-		<script src="js/jquery-3.4.1.min.js"></script>
-		<script src="js/jquery-ui.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
 		<script src="js/angular.min.js"></script>
 		<link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
 		
@@ -14,11 +10,12 @@
 			<title ng-bind="fulltitle">Loading...</title>
 			<div class="header sticky main-text" id="myHeader">
 				<div class="headersub" id="myHeader">
-				  <h2 class="">{{jsondata.points_name_top}}: {{jsondata.point_name_prefix}}<span ng-bind="points"></span><button type="button" style="float: right;border-radius: 20px;" class="collapsible">Show Selected</button></h2>
+				  <h2 class="">{{jsondata.points_name_top}}: {{jsondata.point_name_prefix}}<span ng-bind="points"></span><button id="button" type="button" style="float: right;border-radius: 20px;" class="collapsible">Show Selected</button></h2>
 				  
 				</div>
 					
-					<div class="content">
+				<div id="select-list-wrapper">
+					<div id="select-list">
 					  <ul>
 						  <li ng-repeat="c in selected| orderBy : 'order'">{{c.name}}:
 							<ul>
@@ -27,6 +24,7 @@
 							</li>
 						</ul>
 					</div>
+				</div>	
 			</div>
 		<div class="container" style="padding: 60px 0;"  >
 			

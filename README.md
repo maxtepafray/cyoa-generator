@@ -25,9 +25,7 @@ These are not ideal to be running full time. If I find a better solution, will b
 
 ### Included Libraries
 * AngularJS v1.6.9
-* Jquery v3.4.1
-* Jquery-ui v1.12.1
-* Bootstrap v4.4.1
+* Bootstrap (CSS only) v4.4.1
 
 ###  Files
 Dependencies aside, there are 4 files and 1 folder of note within the repo  
