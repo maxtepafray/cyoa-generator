@@ -1,5 +1,5 @@
 # CYOA Generator
-An AngularJS based web framework for making interactive CYOAs
+An AngularJS based web framework for making interactive CYOAs  
 Preview here: https://maxtepafray.github.io/cyoa-generator/
 
 ### Current Features
