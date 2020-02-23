@@ -112,13 +112,26 @@
 					$scope.selectids[id] = 1;
 				}
 			}
+			setTimeout(function(){
+				if (document.getElementById("select-list-wrapper").style.height > `10px`){
+					slideDown(document.getElementById("select-list-wrapper"));
+				}else{
+					console.log("NOT FIRING");
+				}
+			},50);
 			$scope.selectarr=[].concat.apply([],$scope.selected.map(function(obj){return obj.items})).map(function(obj){return obj.item})
 		}
 	  };
 	});
 
-	
+const slideDown = element => element.style.height = `${element.scrollHeight}px`;
+const slideUp = element => element.style.height = `0px`;
 
-$( "button" ).click(function() {
-  $( ".content" ).toggle( "slide", {"direction":"up"});
+
+document.getElementById("button").addEventListener("click", function () {
+	if (document.getElementById("select-list-wrapper").style.height < `10px`){
+		slideDown(document.getElementById("select-list-wrapper"));
+    }else{
+		slideUp(document.getElementById("select-list-wrapper"));
+	}
 });	

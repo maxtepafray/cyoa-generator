@@ -210,7 +210,7 @@ Do not mess with unless you know what you're doing */
 
 /* Page content */
 .content {
-  padding: 16px;
+  
 }
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
@@ -225,14 +225,23 @@ Do not mess with unless you know what you're doing */
   padding-top: 102px;
 }
 
-.content {
+#select-list {
 background: aliceblue;
 width: 400px;
-float: right;
-display: none;
-border-radius: 0px 0px 10px 10px;
+
+padding: 16px;
+
 }
 
 .clickable {
 	cursor: pointer;
+}
+
+#select-list-wrapper {
+    transition:height 0.20s ease-out;
+    height:0;
+    width: 400px;
+    overflow:hidden;
+    float: right;
+    border-radius: 0px 0px 10px 10px;
 }
