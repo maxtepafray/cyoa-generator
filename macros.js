@@ -44,7 +44,7 @@
 		}
 		
 	  }
-
+          // Toggle selection for a given option
 	  $scope.checkconflict = function checkconflictcheckconflict(id,conflict,require){
 		if (id == null){
 			return false;
