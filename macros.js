@@ -86,16 +86,18 @@
 				
 				var idx = -1;
 				groupidx = $scope.selected.findIndex(o => o.name === group);
-			}else{
-				var idx = $scope.selected[groupidx]["items"].findIndex(o => o.item === itemname);
-			}
-			
-
-			// Is currently selected
-			if (idx > -1) {
-				$scope.selected[groupidx]["items"].splice(idx, 1);
-				$scope.points+=Number(value);
-				if ($scope.selected[groupidx]["items"].length == 0){
+                        setTimeout(function(){
+                                const wrapper = document.getElementById("select-list-wrapper");
+                                if (parseInt(wrapper.style.height) > 10){
+                                        slideDown(wrapper);
+                                }
+                        },50);
+        const wrapper = document.getElementById("select-list-wrapper");
+        if (parseInt(wrapper.style.height) < 10){
+                slideDown(wrapper);
+                slideUp(wrapper);
+        }
+});
 					$scope.selected.splice(groupidx, 1);
 				}
 				if (id != null ){
