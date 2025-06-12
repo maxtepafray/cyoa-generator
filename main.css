@@ -245,3 +245,18 @@ padding: 16px;
     float: right;
     border-radius: 0px 0px 10px 10px;
 }
+body.photo-mode .header {
+    display: none;
+}
+body.photo-mode #select-list-wrapper {
+    display: none;
+}
+body.photo-mode .clickable {
+    pointer-events: none;
+}
+body.photo-mode #photo-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 10000;
+}

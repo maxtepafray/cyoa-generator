@@ -107,6 +107,9 @@
 			else {
 
 				$scope.selected[groupidx]["items"].push({"item":itemname,"points":value});
+document.getElementById("photo-button").addEventListener("click", function () {
+    document.body.classList.toggle("photo-mode");
+});
 				$scope.points-=Number(value);
 				if (id != null ){
 					$scope.selectids[id] = 1;
